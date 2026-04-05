@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sudoku</title>
+<link rel="stylesheet" href="sudoku.css">
+</head>
+<body>
+
+<h1>Sudoku</h1>
+<p class="subtitle">Use logic · Fill the grid · Have fun</p>
+
+<!-- Controls -->
+<div class="controls">
+  <div class="diff-group">
+    <button class="diff-btn active" data-diff="easy">Easy</button>
+    <button class="diff-btn" data-diff="medium">Medium</button>
+    <button class="diff-btn" data-diff="hard">Hard</button>
+  </div>
+  <button class="new-btn" id="newGameBtn">New Game</button>
+</div>
+
+<!-- Stats -->
+<div class="stats">
+  <div class="stat-item">
+    Mistakes &nbsp;
+    <div class="mistakes-pips" id="pips">
+      <div class="pip" id="p0"></div>
+      <div class="pip" id="p1"></div>
+      <div class="pip" id="p2"></div>
+    </div>
+  </div>
+  <div class="timer" id="timer">00:00</div>
+  <div class="stat-item">Left: <span id="remaining">0</span></div>
+</div>
+
+<!-- Board -->
+<div class="board-wrap">
+  <div class="board" id="board"></div>
+</div>
+
+<!-- Number Pad -->
+<div class="numpad-wrap">
+  <div class="numpad" id="numpad"></div>
+</div>
+
+<!-- Action buttons -->
+<div class="actions">
+  <button class="act-btn" id="undoBtn"><span class="icon">↩</span>Undo</button>
+  <button class="act-btn" id="eraseBtn"><span class="icon">⌫</span>Erase</button>
+  <button class="act-btn" id="notesBtn"><span class="icon">✏️</span>Notes</button>
+  <button class="act-btn" id="hintBtn"><span class="icon">💡</span>Hint</button>
+</div>
+
+<!-- Overlays -->
+<div id="loading"><div class="spinner"></div><p style="color:#a7a9be">Generating puzzle…</p></div>
+<canvas id="confetti-canvas"></canvas>
+<div id="win-overlay">
+  <div class="win-card">
+    <div class="win-emoji">🎉</div>
+    <h2>Puzzle Solved!</h2>
+    <p id="win-subtitle">Excellent work!</p>
+    <div class="win-stats">
+      <div class="win-stat"><div class="wv" id="win-time">—</div><div class="wl">Time</div></div>
+      <div class="win-stat"><div class="wv" id="win-mistakes">—</div><div class="wl">Mistakes</div></div>
+      <div class="win-stat"><div class="wv" id="win-hints">—</div><div class="wl">Hints</div></div>
+    </div>
+    <button class="win-play-btn" onclick="startNewGame()">Play Again</button>
+  </div>
+</div>
+
+<script src="sudoku.js"></script>
+</body>
+</html>
